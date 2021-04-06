@@ -1,6 +1,6 @@
 body{
 	width:840px;
-	height:1115px;
+	height:1315px;
 	margin:auto;
 	margin-top:20px;
 	background-color:#252623;
@@ -13,3 +13,29 @@ header{
 	padding:15px;
 }
 
+
+#skillsy{
+	background-color:#AEB4BF;
+	width:32%;
+	float:left;
+	height:1070px;
+	text-align:center;
+	padding:px;
+	
+}
+
+
+
+#costam{
+	background-color:#EBEDF2;
+	width:68%;
+	float:left;
+	height:1070px;
+}
+
+
+#cos{
+Margin-left:5%; 
+border-left:black solid;
+	
+}
