@@ -90,7 +90,6 @@ header{
 }
 
 #zdjecie{
-		margin-top:6%;
 		margin-left:38%;
 }
 
@@ -101,7 +100,7 @@ header{
 	
 }
 
-#wyszukiwanie{
+#wyszukiwanie1{
 	width:100%;
 	max-width:584px;
 	border-radius:23px;
@@ -111,7 +110,7 @@ header{
 	margin:auto;
 }
 
-#wyszukiwanie:hover{
+#wyszukiwanie1:hover{
 	
 		border-bottom:2px solid #dfe1e5;
 		border-top:1px solid #dfe1e5;
@@ -303,4 +302,35 @@ text-decoration: underline;
 	float: left;
 	margin-left:30px;
 	
+}
+
+
+#example-1 {
+    margin: 0 auto;
+    width: auto;
+    max-width: 590px;
+}
+.wyszukiwanie {
+    background: #fff;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    height: 35px;
+    width: auto;
+    max-width: 580px;
+    margin-right: 0px;
+}
+.cityname{
+    padding-top: 8px;
+    margin-left: 10px;
+}
+.wyszukiwanie:hover {
+    background: #f2f2f2;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    height: 35px;
+    width: auto;
+    max-width: 580px;
+    margin-right: 0px;
 }

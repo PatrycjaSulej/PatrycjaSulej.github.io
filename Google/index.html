@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/css/font-awesome/css/all.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="cities.js"></script>
 
 </head>
 	
@@ -58,7 +59,7 @@
 
 
 
-				<div id="wyszukiwanie">
+				<div id="wyszukiwanie1">
 					<div id="znaczek">
 						<i class="fas fa-search"></i>
 					</div>
@@ -77,6 +78,19 @@
 						<div id="aaa"><i class="fas fa-microphone"></i></div>
 
 					</div>
+
+				</div>
+				<div v-if="search">
+					<ul id="example-1" style="list-style-type: none;">
+						<li class="wyszukiwanie" v-for="city in filteredCities.slice(0,6)" :key="city.name">
+							<div>
+								<img id="lupa" src="img/lupa.png" height="16" width="16" style="float:left" />
+								<div v-on:click="select" class="cityname">
+									{{ city.name }}
+								</div>
+							</div>
+						</li>
+					</ul>
 
 				</div>
 
@@ -428,30 +442,53 @@
 		</div>
 	</div>
 	<script>
-		var app1 = new Vue({
-			el: '#wrap',
-			data: {
-				main: true,
-				res: false,
-				googleSearch: "",
-			},
-			methods: {
-				greet: function (event) {
-					if (this.googleSearch != '') {
-						this.main = false;
-						this.res = true;
-					}
-					else {
-						alert('Too short input')
-					}
+        var app1 = new Vue({
+            el: '#wrap',
+            data: {
+                main: true,
+                res: false,
+                search: false,
+                googleSearch: "",
+                cities: window.cities,
+                enterValues: [],
+            },
+            mounted() {
+                window.addEventListener("keypress", function (e) {
+                    char = e.toString();
+                    this.googleSearch = this.googleSearch;
+                    if (this.googleSearch != '')
+                        this.search = true;
+                    if (this.googleSearch == '') {
+                        this.search = false;
+                    }
+                }.bind(this));
+            },
+            computed: {
+                filteredCities() {
+                    return this.cities.filter((city) => {
+                        return city.name.toLowerCase().includes(this.googleSearch.toLowerCase().toString())
+                    })
+                }
+            },
 
-				}
+            methods: {
+                greet: function (event) {
+                    if (this.googleSearch != '') {
+                        this.main = false;
+                        this.res = true;
+                    }
+                    else {
+                        alert('Too short input')
+                    };
+                },
+                select: function (event) {
+                    this.enterValues.push(event);
+                    this.greet()
+                }
 
+            }
 
-
-
-			}
-		})
+        });
 	</script>
 
 
